@@ -1,29 +1,47 @@
-import React from 'react';
-import { Body,  Icon, CheckBox, ListItem } from 'native-base';
-import { Input, Button, Text } from 'native-base';
+import React from "react";
+import { Body, Icon, CheckBox, ListItem } from "native-base";
+import { Input, Button, Text } from "native-base";
 
-export default class AddToDo extends React.Component{    
-    render(){
-        const completed = false;
-        return(                
-            <ListItem>
-                <CheckBox
-                    checked = { completed }
-                    onPress = { () => console.log("set todo as completed") }
-                 />
-                <Body>
-                    <Input placeholder = "What needs to be done?"                    
-                        onChangeText = { (txt) => console.log(txt) }                    
-                        onSubmitEditing = { () => console.log("Text Submited") }                                                                
-                    />
-                </Body>
-                <Button
-                    transparent
-                    onPress = { () => console.log("put todo in trash") }
-                >
-                    <Icon name = { 'trash' } />                
-                </Button>
-            </ListItem> 
-        );
-    }
+export default class AddToDo extends React.Component {
+  constructor(props) {
+    super(props);
+    const title = "";
+    const completed = false;
+    const createdAt = "";
+
+    this.state = {
+      title,
+      completed,
+      createdAt
+    };
+  }
+
+  setStateUtil = (property, value) => {
+    this.setState({
+      [property]: value
+    });
+  };
+
+  render() {
+    const { completed, title } = this.state;
+    const { onPress, onCancel } = this.props;
+    return (
+      <ListItem>
+        <CheckBox
+          checked={completed}
+          onPress={() => this.setStateUtil("completed", !completed)}
+        />
+        <Body>
+          <Input
+            placeholder="What needs to be done?"
+            onChangeText={txt => this.setStateUtil("title", txt)}
+            onSubmitEditing={() => onPress(this.state)}
+          />
+        </Body>
+        <Button transparent onPress={() => onCancel((show = false))}>
+          <Icon name={"trash"} />
+        </Button>
+      </ListItem>
+    );
+  }
 }

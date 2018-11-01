@@ -9,12 +9,34 @@ import {
   Text,
   Icon
 } from "native-base";
-import { createBottomTabNavigator, BottomTabBar } from 'react-navigation';
+import { createBottomTabNavigator, BottomTabBar } from "react-navigation";
 import AddButton from "./addButton";
 import AddToDo from "./addToDoList";
 
 class AllToDo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      new_todo: false
+    };
+  }
+  saveToDoData = todo => {
+    this.addNewToDo((show = false));
+    console.log(
+      "Task is: " +
+        todo.title +
+        " " +
+        (todo.completed ? "completed!" : "not completed!")
+    );
+  };
+
+  addNewToDo = show => {
+    this.setState({
+      new_todo: show
+    });
+  };
   render() {
+    const { new_todo } = this.state;
     return (
       <Container>
         {/* <Text style={{color: 'blue'}}>Hi This is Home Screen</Text>  */}
@@ -24,9 +46,14 @@ class AllToDo extends Component {
           </Body>
         </Header>
         <Content>
-          <AddToDo />
+        {new_todo && 
+                <AddToDo 
+                  onPress = { this.saveToDoData }
+                  onCancel = { this.addNewToDo }
+                />
+              }
         </Content>
-        <AddButton />
+        <AddButton onAddNewToDo = { this.addNewToDo }  />
       </Container>
     );
   }
