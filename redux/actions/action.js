@@ -21,3 +21,4 @@ export function deleteTodo(todo){
         type: DELETE_TODO,
         todo,        
     }
+}

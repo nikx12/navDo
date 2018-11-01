@@ -10,7 +10,8 @@ import {
   // Text
 } from "native-base";
 import Expo from "expo";
-
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import { createDrawerNavigator, DrawerItems } from "react-navigation";
 import HomeScreen from "./views/homeScreen";
 import SecondScreen from "./views/secondScreen";
@@ -34,7 +35,10 @@ export default class App extends React.Component {
       <Container>
         {this.state.fontLoaded ? (
           //
-          <AppDrawerNavigator />
+          <Provider store={store}>
+             <AppDrawerNavigator />
+          </Provider>
+         
         ) : null}
       </Container>
     );
