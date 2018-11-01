@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import { Container } from "native-base";
+import { View, StyleSheet, Image } from "react-native";
+import { Container, Content, Header, Title, Body, Text, Icon } from "native-base";
 import AddButton from "./addButton";
+import AddToDo from "./addToDoList";
 
 
 export default class HomeScreen extends Component {
   render() {
     return (
-      <Container style={styles.container}>
-        <Text style={{color: 'blue'}}>Hi This is Home Screen</Text> 
+      <Container>
+        {/* <Text style={{color: 'blue'}}>Hi This is Home Screen</Text>  */}
+        <Header><Body><Title>To Do App</Title></Body></Header>
+        <Content>  
+              <AddToDo />
+            </Content>             
         <AddButton/>
       </Container>
     );
@@ -18,9 +23,9 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-
+    top: 20,
   }
 });
