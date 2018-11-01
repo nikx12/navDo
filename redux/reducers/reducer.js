@@ -15,7 +15,22 @@ export default function todo_reducer(state = initialState, action) {
             action.todo
         ],
       };
-   
+    case UPDATE_TODO:    
+        let todos = [...state.todos];
+        let indexOfUpdate = todos.findIndex((todo) =>{
+            return todo.title == action.todo.title;
+        });        
+        todos[indexOfUpdate] = action.todo;        
+        return {
+            ...state,
+            todos: todos,
+        }
+    case DELETE_TODO:
+        return {
+            todos: state.todos.filter(function(todo) {
+                return todo.title != action.todo.title;
+            })
+        }
     default:
       return state;
   }
