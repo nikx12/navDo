@@ -13,6 +13,7 @@ import Expo from "expo";
 
 import { createDrawerNavigator, DrawerItems } from "react-navigation";
 import HomeScreen from "./views/homeScreen";
+import SecondScreen from "./views/secondScreen";
 // import Navigation from "./Views/Navigation";
 export default class App extends React.Component {
   state = {
@@ -56,7 +57,8 @@ const CustomDrawerComponent = (props) => {
 };
 
 const AppDrawerNavigator = createDrawerNavigator({
-    HomeScreen: HomeScreen 
+    HomeScreen: HomeScreen,
+    SecondScreen: SecondScreen 
   },
   {
     contentComponent: CustomDrawerComponent

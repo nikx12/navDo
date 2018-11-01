@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { Container } from "native-base";
 
 
-export default class HomeScreen extends Component {
+export default class SecondScreen extends Component {
   render() {
     return (
-      <Container style={styles.container}>
-        <Text style={{color: 'blue'}}>Hi This is Home Screen</Text> 
+      <Container  style={styles.container}>
+        <Text style={{color: 'red'}}>Hi This is Second Screen</Text> 
       </Container>
     );
   }
@@ -16,9 +16,10 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-
+    // color: '#fff',
+    // top: 50
   }
 });
