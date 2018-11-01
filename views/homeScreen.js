@@ -11,7 +11,7 @@ import {
 } from "native-base";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation";
 import AddButton from "./addButton";
-import AddToDo from "./addToDoList";
+import AddToDo from "./addToDo";
 
 class AllToDo extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ class AllToDo extends Component {
         " " +
         (todo.completed ? "completed!" : "not completed!")
     );
+    this.props.addTodo(todo);   
   };
 
   addNewToDo = show => {
