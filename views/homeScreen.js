@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Container } from "native-base";
+import AddButton from "./addButton";
 
 
 export default class HomeScreen extends Component {
@@ -8,6 +9,7 @@ export default class HomeScreen extends Component {
     return (
       <Container style={styles.container}>
         <Text style={{color: 'blue'}}>Hi This is Home Screen</Text> 
+        <AddButton/>
       </Container>
     );
   }
