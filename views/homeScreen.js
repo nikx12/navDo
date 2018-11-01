@@ -11,7 +11,7 @@ import {
 } from "native-base";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation";
 
-import TodoAll from './toDoAll'
+import ToDoAll from './toDoAll'
 class AllToDo extends Component {
 
     render(){
