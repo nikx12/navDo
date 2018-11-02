@@ -78,11 +78,11 @@ class ToDoAll extends Component {
         <Content>
           {listItm}
           {new_todo && (
-            <NewToDo onPress={this.saveToDoData} onCancel={this.addNewToDo} />
+            <AddToDo onPress={this.saveToDoData} onCancel={this.addNewToDo} />
           )}
         </Content>
         {show_new_todo && 
-              <AddToDoButton onAddNewToDo = { this.addNewToDo }  />
+              <AddButton onAddNewToDo = { this.addNewToDo }  />
             }
       </Container>
     );
@@ -90,7 +90,7 @@ class ToDoAll extends Component {
 }
 function mapStateToProps(state) {
   return {
-    todos: state.reducer.todos
+    todos: state.todo_reducer.todos
   };
 }
 function mapDispatchToProps(dispatch) {
